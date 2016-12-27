@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.features',
     defaultMessage: 'Features',
   },
+   clients: {
+    id: 'boilerplate.components.Header.Clients',
+    defaultMessage: 'Clients',
+  },
 });
