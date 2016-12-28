@@ -9,7 +9,7 @@ import {LOCATION_CHANGE} from 'react-router-redux';
 
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
-import clientsReducer from 'containers/ClientsPage/reducer';
+import clientsReducer from 'containers/ClientListPage/reducer';
 import clientCreateReducer from 'containers/ClientCreatePage/reducer';
 import clientEditReducer from 'containers/ClientEditPage/reducer';
 /*

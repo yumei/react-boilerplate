@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
-import ClientTable from "../../components/ClientsPage/ClientTable";
 import {updateForm, saveForm, resetForm} from "./actions";
 import {browserHistory} from 'react-router';
 import ClientForm from "../../components/ClientCreatePage/ClientForm";

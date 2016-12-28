@@ -14,8 +14,8 @@ export function * saveClientToServer(action)
   }
 }
 
-function * client() {
+function * clientCreate() {
   yield takeLatest(SAVE_FORM, saveClientToServer);
 }
 
-export default[client];
+export default[clientCreate];

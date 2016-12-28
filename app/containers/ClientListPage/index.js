@@ -9,7 +9,7 @@ import Helmet from 'react-helmet';
 import {FormattedMessage} from 'react-intl';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import ClientTable from "../../components/ClientsPage/ClientTable";
+import ClientTable from "../../components/ClientListPage/ClientTable";
 import {loadClients} from "./actions";
 // import {createStructuredSelector} from 'reselect'; import AtPrefix from
 // './AtPrefix'; import CenteredSection from './CenteredSection'; import Form

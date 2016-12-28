@@ -18,7 +18,7 @@ const ClientTable = ({ clients }) => (
                         <tr key={index}>
                             <td>{client.firstName + ' ' + client.lastName}</td>
                             <td>{client.dateOfBirth}</td>
-                            <td>{client.enrolled}</td>
+                            <td>{client.enrolled.toString()}</td>
                             <td>{client.gender}</td>
                             <td><Link to={{
                                 pathname: '/clients/edit',

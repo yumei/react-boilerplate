@@ -24,8 +24,8 @@ export function * getClientFromApi(action) {
   }
 }
 
-function * clientInfo() {
+function * clientEdit() {
   yield takeLatest(LOAD_CLIENT, getClientFromApi);
   yield takeLatest(SAVE_FORM, saveClientToServer);
 }
-export default[clientInfo];
+export default[clientEdit];
