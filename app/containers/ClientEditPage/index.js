@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router';
 import ClientTable from "../../components/ClientsPage/ClientTable";
-import {updateForm, saveForm, resetForm} from "./actions";
+import {updateForm, saveForm, resetForm} from "../ClientCreatePage/actions";
+import {loadClient, clientLoaded, clientLoadingError} from "./actions";
 import {browserHistory} from 'react-router';
 import ClientForm from "../../components/ClientCreatePage/ClientForm";
 
-class ClientCreatePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class ClientEditPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   constructor(props, context) {
     super(props, context);
@@ -17,12 +18,14 @@ class ClientCreatePage extends React.Component { // eslint-disable-line react/pr
     this.onClickCancel = this
       .onClickCancel
       .bind(this);
+    // this.state = { //todo: use initialState   client: {     firstName: "2",
+    // lastName: "",     dateOfBirth: "",     enrolled: true,     gender: ""   } }
   }
- 
+
   componentDidMount() {
     this
       .props
-      .initClient();
+      .loadClient(this.context.router.getCurrentLocation().query.id);
   }
 
   onClickSave(event) {
@@ -54,14 +57,21 @@ class ClientCreatePage extends React.Component { // eslint-disable-line react/pr
   }
 }
 
-ClientCreatePage.contextTypes = {
+ClientEditPage.contextTypes = {
   router: PropTypes.object
 };
 
 function mapStateToProps(state) {
+  // console.log(state); //worksMap._root.entries: route, global,  // language,clientList, clientCreate, clientEdit, clients
+  // console.log(state.get('clientEdit')); //?
+  // console.log(state.get('clientEdit').get('client'));
+  let clientInfo = state
+    .get('clientEdit')
+    .get('client');
+  console.log(clientInfo);
   return {
-    client: (state.get('clientCreate').get('client')
-      ? state.get('clientCreate').get('client').toJS()
+    client: (clientInfo
+      ? clientInfo.toJS()
       : {
         firstName: "",
         lastName: "",
@@ -78,10 +88,10 @@ function mapDispatchToProps(dispatch) {
     saveClient: (client) => {
       dispatch(saveForm(client));
     },
-    initClient: () => {
-      dispatch(resetForm());
+    loadClient: (id) => {
+      dispatch(loadClient(id))
     }
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientCreatePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ClientEditPage);

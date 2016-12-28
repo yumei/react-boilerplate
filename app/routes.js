@@ -53,14 +53,12 @@ export default function createRoutes(store) {
         importModules.then(([reducer, sagas, component]) => {
           injectReducer('clients', reducer.default);
           injectSagas(sagas.default);
-
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
       }
-    },
-    
+    },    
      {
       path: '/clients/add',
       name: 'create client',
@@ -76,7 +74,27 @@ export default function createRoutes(store) {
         importModules.then(([reducer, sagas, component]) => {
           injectReducer('clientCreate', reducer.default);
           injectSagas(sagas.default);
+          renderRoute(component);
+        });
 
+        importModules.catch(errorLoading);
+      }
+    },  
+     {
+      path: '/clients/edit',
+      name: 'edit client',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import ('containers/ClientEditPage/reducer'),
+          System.import ('containers/ClientEditPage/sagas'),
+          System.import ('containers/ClientEditPage')
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('clientEdit', reducer.default);
+          injectSagas(sagas.default);
           renderRoute(component);
         });
 

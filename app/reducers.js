@@ -11,6 +11,7 @@ import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import clientsReducer from 'containers/ClientsPage/reducer';
 import clientCreateReducer from 'containers/ClientCreatePage/reducer';
+import clientEditReducer from 'containers/ClientEditPage/reducer';
 /*
  * routeReducer
  *
@@ -43,8 +44,9 @@ export default function createReducer(asyncReducers) {
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
-    clientData: clientsReducer,
+    clientList: clientsReducer,
     clientCreate: clientCreateReducer,
+    clientEdit: clientEditReducer,
     ...asyncReducers
   });
 }

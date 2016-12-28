@@ -21,9 +21,9 @@ const ClientTable = ({ clients }) => (
                             <td>{client.enrolled}</td>
                             <td>{client.gender}</td>
                             <td><Link to={{
-                                pathname: 'details',
+                                pathname: '/clients/edit',
                                 query: {
-                                    name: client.id
+                                    id: client.id
                                 },
                                 }}>Edit</Link></td>
                         </tr>

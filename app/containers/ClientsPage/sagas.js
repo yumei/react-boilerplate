@@ -24,7 +24,7 @@ export function * getClientsFromApi(action) {
   }
 }
 
-function * clientData() {
+function * clientList() {
   yield takeLatest(LOAD_CLIENTS, getClientsFromApi);
 }
 /**
@@ -48,4 +48,4 @@ export function * githubData() {
 }*/
 
 // Bootstrap sagas export default[githubData];
-export default[clientData];
+export default[clientList];

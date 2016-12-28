@@ -77,7 +77,7 @@ function findClients(clients) {
 
 function mapStateToProps(state) {
   return {    
-    clients: findClients(state.get('clientData').get('clients'))//todo: why clientList?
+    clients: findClients(state.get('clientList').get('clients'))//todo: why clientList?
   };
 }
 

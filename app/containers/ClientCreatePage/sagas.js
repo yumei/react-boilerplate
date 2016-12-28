@@ -18,4 +18,4 @@ function * client() {
   yield takeLatest(SAVE_FORM, saveClientToServer);
 }
 
-export default[client]
+export default[client];
