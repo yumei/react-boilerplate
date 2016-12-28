@@ -36,11 +36,11 @@ class ClientApi {
   }
 
   static saveClient(client) {
-    client = Object.assign({}, parent); //to vaoid manipulating object passed in
+    client = Object.assign({}, client); //to vaoid manipulating object passed in
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        client.id = parent.firstName + '-' + parent.lastName; //todo: check duplicate
-        clients.push(parent);
+        client.id = client.firstName + '-' + client.lastName; //todo: check duplicate
+        clients.push(client);
       }, delay);
     });
   }
@@ -51,7 +51,7 @@ export function getClients() {
 } //todo: replaced with api call
 
 export function addClient(client) {
-  client.id = parent.firstName + '-' + parent.lastName;
-  clients.push(parent);
+  client.id = client.firstName + '-' + client.lastName;
+  clients.push(client);
 }
 export default ClientApi;

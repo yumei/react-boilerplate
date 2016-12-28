@@ -59,6 +59,29 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       }
+    },
+    
+     {
+      path: '/clients/add',
+      name: 'create client',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import ('containers/ClientCreatePage/reducer'),
+          System.import ('containers/ClientCreatePage/sagas'),
+          System.import ('containers/ClientCreatePage')
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('clientCreate', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      }
     }, {
       path: '/features',
       name: 'features',

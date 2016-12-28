@@ -16,7 +16,7 @@ const ClientTable = ({ clients }) => (
                 {clients.map((client, index)=>
                     (
                         <tr key={index}>
-                            <td>{client.firstName + '' + client.lastName}</td>
+                            <td>{client.firstName + ' ' + client.lastName}</td>
                             <td>{client.dateOfBirth}</td>
                             <td>{client.enrolled}</td>
                             <td>{client.gender}</td>
@@ -25,7 +25,7 @@ const ClientTable = ({ clients }) => (
                                 query: {
                                     name: client.id
                                 },
-                                }}>Deatils</Link></td>
+                                }}>Edit</Link></td>
                         </tr>
                     )
                 )}

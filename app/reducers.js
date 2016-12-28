@@ -10,6 +10,7 @@ import {LOCATION_CHANGE} from 'react-router-redux';
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import clientsReducer from 'containers/ClientsPage/reducer';
+import clientCreateReducer from 'containers/ClientCreatePage/reducer';
 /*
  * routeReducer
  *
@@ -43,6 +44,7 @@ export default function createReducer(asyncReducers) {
     global: globalReducer,
     language: languageProviderReducer,
     clientData: clientsReducer,
+    clientCreate: clientCreateReducer,
     ...asyncReducers
   });
 }

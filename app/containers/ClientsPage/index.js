@@ -59,7 +59,7 @@ export class ClientsPage extends React.PureComponent { // eslint-disable-line re
     return (
       <div>
         <ClientTable clients={this.props.clients}/>
-        <Link className="button" to="clients/add">Add Client</Link>
+        <Link className="btn btn-primary" to="clients/add">Add Client</Link>
       </div>
     );
   }
